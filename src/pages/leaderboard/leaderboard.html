@@ -1,0 +1,46 @@
+<!--
+  Generated template for the Leaderboard page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>The Leaderboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-bg">
+  <app-user></app-user>
+  <div class="flex-hightspaced fill-content">
+    <figure class="flexfill">
+      <img src="./assets/img/concrete1.jpg" class="max-fill" />
+    </figure>
+    <div>
+      <h1 class="fixed white top">The Leaderboard</h1>
+    </div>
+  </div>
+
+  <div id="center_template" class="main center-content">
+    <div class="spaced">
+      <h2>Teams</h2>
+      <div class="decorated">
+        <ion-list *ngFor="let s of teamScore" class="spaced"><b>{{s.rank}}</b><br/>{{s.name}}</ion-list>
+      </div>
+    </div>
+
+    <div class="spaced">
+      <h2>Individuals</h2>
+      <div class="decorated">
+        <ion-list *ngFor="let s of individualScore" class="spaced"><b>{{s.rank}}</b><br/>{{s.name}}</ion-list>
+      </div>
+    </div>
+
+    <p *ngIf="(auth.points || 0) > 0" class="only-small">My Points: {{auth.points}}</p>
+  </div>
+
+  <app-footer></app-footer>
+</ion-content>

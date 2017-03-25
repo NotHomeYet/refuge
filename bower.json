@@ -1,0 +1,29 @@
+{
+  "name": "Refuge",
+  "description": "Refuge Connect - An App for the Refuge @ Foundry",
+  "main": "index.html",
+  "authors": [
+    "Noah"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Foundry",
+    "Refuge"
+  ],
+  "homepage": "refuge.foundry.church",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "platform.js": "platform#^1.3.3"
+  },
+  "devDependencies": {
+    "platform.js": "platform#^1.3.3",
+    "page": "^1.7.1"
+  }
+}

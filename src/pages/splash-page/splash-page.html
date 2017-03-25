@@ -1,0 +1,78 @@
+<ion-content class="content-bg">
+  <app-user></app-user>
+
+  <div class="flex-hightspaced fill-content">
+    <figure class="flexfill">
+      <img src="./assets/img/worship.jpg" class="max-fill" />
+    </figure>
+    <div>
+      <h1 class="fixed white top huge-font">THE REFUGE</h1>
+    </div>
+  </div>
+
+  <div class="fill-content colored only-small">
+    <div class="spaced"></div>
+  </div>
+
+  <div id="center_template" class="main center-content">
+    <div class="big-spaced">
+      <h2>Want More?</h2>
+
+      <div class="decorated">
+        <ion-item>
+          <ion-label>I am a:</ion-label>
+          <ion-select [(ngModel)]="user.class">
+            <ion-option value='s'>Student</ion-option>
+            <ion-option value='p'>Parent</ion-option>
+            <ion-option value='l'>Small Group Leader</ion-option>
+            <ion-option value='v'>Visitor (More Info)</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="user.class === 's' || user.class === 'l'">
+          <ion-label>Small Group:</ion-label>
+          <ion-select [(ngModel)]="user.team">
+            <ion-option *ngFor="let team of teamList" value="{{team.$key}}">
+              <p><b>{{team.name}}</b></p>
+            </ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="user.class">
+          <ion-label floating>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="user.displayName"></ion-input>
+        </ion-item>
+      </div>
+
+      <br/>
+      <div *ngIf="user.displayName" class="big-spaced">
+        <h3>Login With</h3>
+        <div class="big-padded only-big">
+            <img src="./assets/img/facebook.png" width="70px" (click)="facebook()" tappable/>
+            <img src="./assets/img/google-plus.png" width="70px" (click)="google()" tappable/>
+            <img src="./assets/img/twitter.png" width="70px" (click)="twitter()" tappable/>
+            <div class="padded">
+                <h3>- OR -</h3>
+            </div>
+        </div>
+        <div class="decorated">
+          <ion-item>
+            <ion-label floating>Email Address</ion-label>
+            <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+        </div>
+        <p color="danger" font-weight="bold" class="padded">{{message}}</p>
+        <button ion-button color="secondary" (click)="emailPassCreate()">Create New Account!</button>
+      </div>
+    </div>
+
+    <br/>
+    <button ion-button color="primary" (click)="loginPage()">Already Have An Account?</button>
+  </div>
+
+  <app-footer></app-footer>
+</ion-content>

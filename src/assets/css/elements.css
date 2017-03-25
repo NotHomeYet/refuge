@@ -1,0 +1,360 @@
+/*sizing controls*/
+
+.colored {
+    background-color: #F25232;
+    color: white;
+}
+
+.decorated {
+    border-style: solid;
+    border-left-color: #F25232;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    text-align: left;
+}
+
+.content-bg {
+    /*background-image: url('/assets/img/concrete1.jpg');
+  background-size:cover;
+  -webkit-background-origin:border;*/
+    padding-top: 0;
+}
+
+.dark {
+    background-color: rgba(24, 24, 24, 0.75);
+    color: white;
+}
+
+.white {
+    color: white;
+    text-decoration: none;
+}
+
+.white:visited {
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Main content controls*/
+
+div.center-content {
+    width: auto;
+    max-width: 900px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    display: block;
+    line-height: 24px;
+    min-height:50%;
+}
+
+.fill-content {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main {
+    background: rgba(255, 255, 255, 0.95);
+    color: rgba(24, 24, 24, 1);
+    height: auto;
+}
+
+.max-fill {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+
+
+
+
+
+/*Padding Stuff*/
+.fixed {
+    margin: 0;
+    padding: 0;
+}
+
+.spaced {
+    margin: 0;
+    padding: 4px;
+}
+
+.padded {
+    margin: 4px;
+    padding: 4px;
+}
+
+.big-spaced {
+    margin: 0;
+    padding: 10px;
+}
+
+.left-spaced {
+    padding-left: 20px;
+}
+
+.top-spaced {
+    padding-top: 20px;
+}
+
+.big-padded {
+    margin: 10px;
+    padding: 10px;
+}
+
+.cell {
+    padding: 10px;
+    display: table-cell;
+    vertical-align: top;
+}
+
+
+
+
+
+
+
+
+
+/*Positional Stuff*/
+.half {
+    max-width: 450px;
+}
+
+.full {
+    max-width: 900px;
+}
+
+
+.top {
+    position: relative;
+    max-width: 100%;
+    z-index: 100;
+    margin: 0;
+    padding: 30px;
+}
+
+.right {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+    width: auto;
+}
+
+.left {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+    width: auto;
+}
+
+.flexfill {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    z-index: 99;
+    overflow: hidden;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*Element defaults*/
+
+input, textarea {
+    padding: 4px;
+    margin: 4px;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: bolder;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    width: 95%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: block;
+}
+
+div {
+    vertical-align: top;
+    display: block;
+}
+
+img {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-shadow: 1px 1px 20px black;
+}
+
+.huge-font {
+    font-size: 90px;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Media sizing width controls*/
+
+div.flexbox {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flexbig {
+    width: auto;
+    margin: 0;
+}
+
+.only-big {}
+
+.only-small {}
+
+@media (max-width: 800px) {
+    div.flexbox {
+        display: block;
+        padding: 5px;
+        max-width: 800px;
+    }
+    h1 {
+        font-size: 34px;
+    }
+    h2 {
+        font-size: 28px;
+    }
+    .huge-font {
+        font-size: 60px;
+    }
+    .flexbig {
+        padding-left: 2px;
+        padding-right: 2px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+    .only-big {
+        display: none;
+    }
+    .only-small {
+        display: block;
+    }
+}
+
+@media (min-width: 800px) {
+    div.flexbox {
+        display: inline-flex;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 44px;
+    }
+    h2 {
+        font-size: 34px;
+    }
+    .flexbig {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+    .only-big {
+        display: block;
+    }
+    .only-small {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Media sizing Height controls*/
+
+.flex-hightspaced {
+    margin: 0;
+    position: relative;
+    text-align: center;
+    padding-top: 130px;
+    padding-bottom: 60px;
+}
+
+@media (max-height: 800px) {
+    .flex-hightspaced {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+@media (min-height: 800px) {
+    .flex-hightspaced {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+}

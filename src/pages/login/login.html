@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Login</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="content-bg">
+    <div class="fill-content colored">
+        <div class="spaced"></div>
+    </div>
+    <div class="flex-hightspaced fill-content">
+      <figure class="flexfill">
+        <img src="./assets/img/concrete1.jpg" class="max-fill" />
+      </figure>
+      <div>
+        <h1 class="fixed white top">Login</h1>
+      </div>
+    </div>
+
+    <div id="login_template" class="center-content main">
+        <div class="big-padded only-big">
+            <img src="./assets/img/facebook.png" width="70px" (click)="facebook()" tappable/>
+            <img src="./assets/img/google-plus.png" width="70px" (click)="google()" tappable/>
+            <img src="./assets/img/twitter.png" width="70px" (click)="twitter()" tappable/>
+            <div class="padded">
+                <h3>- OR -</h3>
+            </div>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="emailPass()" validate>
+            <div class="big-padded decorated">
+                <ion-item>
+                    <ion-label floating>Email Address</ion-label>
+                    <ion-input #username formControlName="email" type="email" clearInput="true"></ion-input>
+                </ion-item>
+                <ion-item *ngIf="!loginForm.controls['email'].valid && submitted">
+                    <p ion-text color="danger" font-weight="bold">Please enter a valid email adress.</p>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input formControlName="password" type="password" clearInput="true"></ion-input>
+                </ion-item>
+                <ion-item *ngIf="!loginForm.controls['password'].valid && submitted">
+                    <p ion-text color="danger" font-weight="bold">Please enter a valid password.</p>
+                </ion-item>
+            </div>
+            <p ion-text color="danger" font-weight="bold" class="padded">{{message}}</p>
+            <button ion-button type="submit" color="secondary">Login</button><br/><br/>
+            <button ion-button type="button" (click)="resetPassword()">Send Recovery Email</button>
+        </form>
+    </div>
+
+    <app-footer></app-footer>
+</ion-content>

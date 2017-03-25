@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Discussion Starters</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-bg">
+  <app-user></app-user>
+  <div class="flex-hightspaced">
+    <figure class="flexfill">
+      <img src="./assets/img/concrete1.jpg" class="max-fill" />
+    </figure>
+    <div>
+      <h1 class="fixed white top">Discussion Starters</h1>
+    </div>
+  </div>
+
+  <div id="center_template" class="main center-content">
+    <ion-list *ngFor="let box of b.boxes" class="decorated flexbox big-padded">
+      <button ion-button *ngIf="this.auth.isAdmin" color="dark" (click)="b.deleteBox(box)" icon-only padded small>
+        <ion-icon name="close-circle" ></ion-icon>
+      </button>
+      <button ion-button *ngIf="this.auth.isAdmin" color="dark" (click)="update(box)" icon-only padded small>
+        <ion-icon name="create" ></ion-icon>
+      </button>
+      <h2>{{box.title}} - {{box.time | date}}</h2>
+      <p class="spaced">{{box.content}}</p>
+    </ion-list>
+
+    <div class="spaced" *ngIf="this.auth.isAdmin">
+      <br/><br/>
+      <ion-card>
+        <h3>Admin View - Discussions</h3>
+        <ion-item>
+          <ion-label floating>Event</ion-label>
+          <ion-input type="text" [(ngModel)]="box.title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Discussion Content / Overview</ion-label>
+          <ion-textarea type="text" [(ngModel)]="box.content" rows="4"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Event Date</ion-label>
+          <ion-input type="date" [(ngModel)]="box.date"></ion-input>
+        </ion-item>
+        <button ion-button color="secondary" class="big-spaced" (click)="save()">Save Content</button>
+      </ion-card>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

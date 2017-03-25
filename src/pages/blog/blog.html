@@ -1,0 +1,69 @@
+<!--
+  Generated template for the Blog page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Team Connect</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-bg">
+  <app-user></app-user>
+  <div class="flex-hightspaced fill-content">
+    <figure class="flexfill">
+      <img src="./assets/img/home.jpg" class="max-fill" />
+    </figure>
+    <div>
+      <h1 class="fixed white top">Team Connect</h1>
+    </div>
+  </div>
+
+  <div id="center_template" class="main center-content">
+    <div class="spaced">
+      <!-- <button ion-button *ngIf="this.auth.isAdmin" color="secondary" (click)="startNewGlobal()">Create New Global Thread</button> -->
+      <ion-list *ngFor="let blog of blogs" class="fixed">
+        <ion-card>
+          <ion-item item-left>
+            <ion-avatar item-left tappable (click)="blogDetails(blog)">
+              <img [src]="getPhotoURL(blog)">
+            </ion-avatar>
+            <p item-left tappable (click)="blogDetails(blog)"><b>{{getDisplayName(blog)}}</b><br/>{{(0-blog.time) | date}}</p>
+            <ion-badge *ngIf="blog.c_count" item-right>{{blog.c_count}}</ion-badge>
+            <ion-item item-right *ngIf="this.auth.isAdmin || (this.auth.userId && this.auth.userId.indexOf(blog.UUID) !== -1)">
+              <button ion-button color="dark" item-left (click)="deleteBlog(blog)" icon-only padded small>
+                <ion-icon name="close-circle" ></ion-icon>
+              </button>
+            </ion-item>
+            <button ion-button *ngIf="(this.auth.userId && this.auth.userId.indexOf(blog.UUID) !== -1)" color="dark" item-right (click)="editBlog(blog)" icon-only padded small>
+              <ion-icon name="create" ></ion-icon>
+            </button>
+          </ion-item>
+          <ion-item tappable (click)="blogDetails(blog)">
+            <b>{{blog.title}}</b><p>{{blog.text}}</p>
+          </ion-item>
+        </ion-card>
+      </ion-list>
+      <button ion-button color="secondary" *ngIf="this.auth.team != null" (click)="startNewBlog()">Create New Thread</button>
+    </div>
+
+    <div class="spaced" *ngIf="this.auth.isAdmin">
+      <ion-card>
+        <ion-item>
+          <ion-label item-left>Admin - Viewing Small Group:</ion-label>
+          <ion-select [(ngModel)]="teamView" (ngModelChange)="setTeamFilter()" item-right>
+            <ion-option *ngFor="let team of teamList" value="{{team.$key}}">
+              <p><b>{{team.name}}</b></p>
+            </ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-card>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

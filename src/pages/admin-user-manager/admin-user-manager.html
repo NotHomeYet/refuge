@@ -1,0 +1,90 @@
+<!--
+  Generated template for the AboutUs page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Admin User Manager</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-bg">
+  <div class="flex-hightspaced fill-content">
+    <figure class="flexfill">
+      <img src="./assets/img/bg2.jpg" class="max-fill" />
+    </figure>
+    <div>
+      <h1 class="fixed white top">Admin User Manager</h1>
+    </div>
+  </div>
+
+  <div id="center_template" class="main center-content">
+    <ion-item>
+      <ion-searchbar item-left [(ngModel)]="findUser"></ion-searchbar>
+      <ion-item item-left>
+        <ion-label>User Filter</ion-label>
+        <ion-select [(ngModel)]="findUserClass">
+          <ion-option value=''>No Filter</ion-option>
+          <ion-option value='s'>Student</ion-option>
+          <ion-option value='l'>Leader</ion-option>
+          <ion-option value='p'>Parent</ion-option>
+          <ion-option value='v'>Visitor</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-item>
+
+    <!-- <ion-item>
+      <p item-left><b>User</b></p>
+      <p item-right><b>User Type</b></p>
+    </ion-item> -->
+
+    <div class="spaced">
+      <ion-card *ngFor="let user of userList" class="small-spaced">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-avatar *ngIf="user.photoURL" item-left>
+                  <img [src]="user.photoURL">
+                </ion-avatar>
+                <p item-left><b>{{user.displayName}}</b><br/>{{user.email}}</p>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-select [(ngModel)]="user.class" (ngModelChange)="setUserClass(user)">
+                  <ion-option value='s'>Student</ion-option>
+                  <ion-option value='l'>Leader</ion-option>
+                  <ion-option value='p'>Parent</ion-option>
+                  <ion-option value='v'>Visitor</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="user.class ==='s' || user.class ==='l'">
+            <ion-col>
+              <ion-item item-left>
+                <ion-label floating>Points</ion-label>
+                <ion-input type="number" [(ngModel)]="user.points" (ngModelChange)="setUserPoints(user)"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-select [(ngModel)]="user.team" (ngModelChange)="setUserTeam(user)">
+                  <ion-option *ngFor="let t of teams" value='{{t.$key}}'>{{t.name}}</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</ion-content>

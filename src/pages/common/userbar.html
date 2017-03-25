@@ -1,0 +1,34 @@
+<div class="only-big">
+
+    <ion-grid class="fixed right">
+        <ion-row *ngIf="!a.authenticated" class="fixed right">
+            <ion-col class="fixed">
+                <button (click)="aboutUsPage()" class="fixed" ion-item>
+          <p item-left>About Us</p><ion-icon item-right name="help-circle" class="fixed"></ion-icon>
+        </button>
+            </ion-col>
+
+            <ion-col class="fixed">
+                <button (click)="loginPage()" class="fixed" ion-item>
+          <p item-left>   Login</p><ion-icon item-right name="log-in" class="fixed"></ion-icon>
+        </button>
+            </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="a.authenticated" class="fixed right">
+            <ion-col class="fixed">
+                <button (click)="viewUserDetails()" ion-item class="fixed">
+            <h3 item-left>{{a.friendlyName}}</h3>
+            <p *ngIf="(a.points || 0) > 0" item-left>My Points: {{a.points}}</p>
+            <ion-avatar *ngIf="a.photoURL" item-right class="fixed">
+              <img [src]="a.photoURL">
+            </ion-avatar>
+          </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div class="fill-content colored">
+        <div class="spaced"></div>
+    </div>
+</div>
