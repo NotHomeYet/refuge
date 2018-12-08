@@ -1,9 +1,9 @@
 export let FIREBASE_CONFIG = {
-  apiKey: "<<YOUR API KEY>>",
-  authDomain: "<<YOUR AUTH DOMAIN>>",
-  databaseURL: "<<YOUR URL>>",
-  storageBucket: "<<YOUR BUCKET>>",
-  messagingSenderId: "<<YOUR SENDER ID>>"
+  apiKey: '<API_KEY>',
+  authDomain: '<PROJECT_ID>.firebaseapp.com',
+  databaseURL: 'https://<DATABASE_NAME>.firebaseio.com',
+  storageBucket: '<BUCKET>.appspot.com',
+  messagingSenderId: '<<YOUR SENDER ID>>'
 };
 
 export let FCM_API_KEY = '<<YOUR KEY HERE>>';
